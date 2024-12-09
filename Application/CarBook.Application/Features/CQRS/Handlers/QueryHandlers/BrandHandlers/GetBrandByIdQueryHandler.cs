@@ -19,7 +19,6 @@ namespace CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BrandHandlers
             {
                 BrandId = data.Id,
                 Name = data.Name,
-                Cars = data.Cars
             };
         }
     }

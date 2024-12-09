@@ -16,7 +16,6 @@ namespace CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BrandComman
         {
             await repository.CreateAsync(new Brand
             {
-                Cars = command.Cars,
                 Name = command.Name
             });
         }

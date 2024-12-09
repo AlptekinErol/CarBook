@@ -18,7 +18,6 @@ namespace CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BrandHandlers
             return data.Select(x => new GetBrandQueryResult
             {
                 BrandId = x.Id,
-                Cars = x.Cars,
                 Name = x.Name
             }).ToList();
         }
