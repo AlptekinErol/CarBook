@@ -6,10 +6,10 @@ using CarBook.Domain.Entities;
 
 namespace CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BannerHandlers
 {
-    public class GetBannerByQueryHandler
+    public class GetBannerByIdQueryHandler
     {
         private readonly IRepository<Banner> repository;
-        public GetBannerByQueryHandler(IRepository<Banner> repository)
+        public GetBannerByIdQueryHandler(IRepository<Banner> repository)
         {
             this.repository = repository;
         }
