@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\CarBook.Persistence\CarBook.Persistence.csproj" />
+    <ProjectReference Include="..\CarBook.Bootstrapper\CarBook.Bootstrapper.csproj" />
   </ItemGroup>
 
 </Project>
