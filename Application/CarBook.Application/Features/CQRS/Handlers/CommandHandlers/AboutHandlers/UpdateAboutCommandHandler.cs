@@ -18,7 +18,7 @@ namespace CarBook.Application.Features.CQRS.Handlers.CommandHandlers.AboutHandle
             data.Title = command.Title;
             data.Description = command.Description;
             data.CreatedDate = command.CreatedDate;
-            data.UpdatedDate= command.UpdatedDate;
+            data.UpdatedDate = command.UpdatedDate;
             await repository.UpdateAsync(data);
         }
     }
