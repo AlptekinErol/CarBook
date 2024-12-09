@@ -16,7 +16,6 @@ namespace CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BrandComman
         {
             var data = await repository.GetByIdAsync(command.BrandId);
             data.Name = command.Name;
-            data.Cars = command.Cars;
             await repository.UpdateAsync(data);
         }
     }
