@@ -3,11 +3,13 @@ using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BannerHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BrandCommandHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.CarHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.CategoryHandlers;
+using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.ContactHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.AboutHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BannerHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BrandHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.CarHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.CategoryHandlers;
+using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.ContactHandlers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CarBook.Bootstrapper.Extensions
@@ -67,6 +69,17 @@ namespace CarBook.Bootstrapper.Extensions
             services.AddScoped<CreateCategoryCommandHandler>();
             services.AddScoped<RemoveCategoryCommandHandler>();
             services.AddScoped<UpdateCategoryCommandHandler>();
+
+            return services;
+        }
+        public static IServiceCollection AddContactHandlers(this IServiceCollection services)
+        {
+            // Banner
+            services.AddScoped<GetContactByIdQueryHandler>();
+            services.AddScoped<GetContactQueryHandler>();
+            services.AddScoped<CreateContactCommandHandler>();
+            services.AddScoped<RemoveContactCommandHandler>();
+            services.AddScoped<UpdateContactCommandHandler>();
 
             return services;
         }
