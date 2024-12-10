@@ -15,6 +15,8 @@ namespace CarBook.Application.Features.CQRS.Handlers.CommandHandlers.CarHandlers
         {
             await repository.CreateAsync(new Car
             {
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now,
                 BigImageUrl = command.BigImageUrl,
                 BrandId = command.BrandId,
                 CoverImageUrl = command.CoverImageUrl,

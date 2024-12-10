@@ -2,10 +2,12 @@
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BannerHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BrandCommandHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.CarHandlers;
+using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.CategoryHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.AboutHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BannerHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BrandHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.CarHandlers;
+using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.CategoryHandlers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CarBook.Bootstrapper.Extensions
@@ -54,6 +56,17 @@ namespace CarBook.Bootstrapper.Extensions
             services.AddScoped<RemoveCarCommandHandler>();
             services.AddScoped<UpdateCarCommandHandler>();
             services.AddScoped<GetCarWithBrandQueryHandler>();
+
+            return services;
+        }
+        public static IServiceCollection AddCategoryHandlers(this IServiceCollection services)
+        {
+            // Banner
+            services.AddScoped<GetCategoryByIdQueryHandler>();
+            services.AddScoped<GetCategoryQueryHandler>();
+            services.AddScoped<CreateCategoryCommandHandler>();
+            services.AddScoped<RemoveCategoryCommandHandler>();
+            services.AddScoped<UpdateCategoryCommandHandler>();
 
             return services;
         }
