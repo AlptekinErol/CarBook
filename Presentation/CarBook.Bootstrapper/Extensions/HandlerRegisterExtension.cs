@@ -14,6 +14,7 @@ namespace CarBook.Bootstrapper.Extensions
             services.AddAboutHandlers();
             services.AddBrandHandlers();
             services.AddBannerHandlers();
+            services.AddCarHandlers();
 
             return services;
         }

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Application\CarBook.Application\CarBook.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\CarBook.Persistence\CarBook.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
