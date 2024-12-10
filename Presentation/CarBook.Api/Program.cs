@@ -9,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<CarBookContext>();
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>)); // burada typeof repo classlarýn <T> yani generic çalýþacaðýný belirtmemizi saðlýyor
+
+//RepositoryExtensions Registration
+builder.Services.RepositoryRegister();
 
 //HandlerExtensions Registration
 builder.Services.HandlerRegister();
