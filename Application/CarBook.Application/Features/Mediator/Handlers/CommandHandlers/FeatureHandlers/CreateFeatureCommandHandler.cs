@@ -17,6 +17,8 @@ namespace CarBook.Application.Features.Mediator.Handlers.CommandHandlers.Feature
             await repository.CreateAsync(new Feature
             {
                 Name = request.Name,
+                CreatedDate = request.CreatedDate,
+                UpdatedDate = request.UpdatedDate,
             });
         }
     }

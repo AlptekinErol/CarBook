@@ -16,6 +16,9 @@ namespace CarBook.Application.Features.Mediator.Handlers.CommandHandlers.Feature
         {
             var data = await repository.GetByIdAsync(request.FeatureId);
             data.Name = request.Name;
+            data.CreatedDate = request.CreatedDate;
+            data.UpdatedDate = DateTime.UtcNow;
+
             await repository.UpdateAsync(data);
         }
     }

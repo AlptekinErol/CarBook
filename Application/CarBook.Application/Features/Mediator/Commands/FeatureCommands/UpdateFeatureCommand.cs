@@ -6,5 +6,7 @@ namespace CarBook.Application.Features.Mediator.Commands.FeatureCommands
     {
         public int FeatureId { get; set; }
         public string Name { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime UpdatedDate { get; set; }
     }
 }
