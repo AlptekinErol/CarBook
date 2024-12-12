@@ -1,5 +1,6 @@
 ﻿using CarBook.Application.Features.Mediator.Commands.FeatureCommands;
-using CarBook.Application.Features.Mediator.Queries;
+using CarBook.Application.Features.Mediator.Queries.FeatureQueries;
+using CarBook.Application.Features.Mediator.Queries.FooterAddressQueries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,10 +23,10 @@ namespace CarBook.Api.Controllers
             var data = await mediator.Send(new GetFeatureQuery()); // burada new GetFeatureQuery vermemizin sebebi aslında bu sınıfın bir Request olduğunu belirttik Request'in imzası denebilir ( Feature sınıfına ait imza ) 
             return Ok(data);
         }
-        [HttpGet("GetFeature")]
-        public async Task<IActionResult> GetFeature([FromQuery] GetFeatureByIdQuery query)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetFeature(int id)
         {
-            var data = await mediator.Send(query.Id);
+            var data = await mediator.Send(new GetFooterAddressByIdQuery(id));
             return Ok(data);
         }
         [HttpPost]
