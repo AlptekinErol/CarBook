@@ -12,4 +12,19 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\ThemeFiles\.DS_Store" />
+    <None Include="wwwroot\ThemeFiles\css\.DS_Store" />
+    <None Include="wwwroot\ThemeFiles\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\ThemeFiles\css\css\.DS_Store" />
+    <None Include="wwwroot\ThemeFiles\images\.DS_Store" />
+    <None Include="wwwroot\ThemeFiles\js\.DS_Store" />
+    <None Include="wwwroot\ThemeFiles\scss\.DS_Store" />
+    <None Include="wwwroot\ThemeFiles\scss\bootstrap\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarBook.DTO\CarBook.DTO.csproj" />
+  </ItemGroup>
+
 </Project>
