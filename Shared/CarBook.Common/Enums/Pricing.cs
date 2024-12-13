@@ -1,4 +1,4 @@
-﻿namespace CarBook.Domain.Enums
+﻿namespace CarBook.Common.Enums
 {
     public enum Pricing
     {
