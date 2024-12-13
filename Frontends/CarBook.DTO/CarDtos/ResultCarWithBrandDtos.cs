@@ -1,12 +1,12 @@
-﻿using CarBook.Domain.Common;
-using CarBook.Common.Enums;
+﻿using CarBook.Common.Enums;
 
-namespace CarBook.Domain.Entities
+namespace CarBook.DTO.CarDtos
 {
-    public class Car : EntityBase
+    public class ResultCarWithBrandDtos
     {
+        public int CarId { get; set; }
         public int BrandId { get; set; }
-        public Brand Brand { get; set; }
+        public string BrandName { get; set; } // Marka adı ile filtreleme içi
         public string Model { get; set; }
         public string CoverImageUrl { get; set; }
         public string Km { get; set; }
@@ -15,8 +15,5 @@ namespace CarBook.Domain.Entities
         public byte Luggage { get; set; }
         public string Fuel { get; set; }
         public string BigImageUrl { get; set; }
-        public List<CarFeature> CarFeatures { get; set; }
-        public List<CarDescription> CarDescriptions { get; set; }
-        public List<CarPricing> CarPricings { get; set; }
     }
 }

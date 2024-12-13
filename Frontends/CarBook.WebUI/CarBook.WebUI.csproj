@@ -17,6 +17,10 @@
     <None Include="wwwroot\ThemeFiles\css\.DS_Store" />
     <None Include="wwwroot\ThemeFiles\css\bootstrap\.DS_Store" />
     <None Include="wwwroot\ThemeFiles\css\css\.DS_Store" />
+    <None Include="wwwroot\ThemeFiles\fonts\.DS_Store" />
+    <None Include="wwwroot\ThemeFiles\fonts\flaticon\.DS_Store" />
+    <None Include="wwwroot\ThemeFiles\fonts\flaticon\font\.DS_Store" />
+    <None Include="wwwroot\ThemeFiles\fonts\ionicons\fonts\.DS_Store" />
     <None Include="wwwroot\ThemeFiles\images\.DS_Store" />
     <None Include="wwwroot\ThemeFiles\js\.DS_Store" />
     <None Include="wwwroot\ThemeFiles\scss\.DS_Store" />

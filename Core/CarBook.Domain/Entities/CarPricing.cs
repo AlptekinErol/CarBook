@@ -1,5 +1,5 @@
 ﻿using CarBook.Domain.Common;
-using CarBook.Domain.Enums;
+using CarBook.Common.Enums;
 
 namespace CarBook.Domain.Entities
 {
