@@ -2,7 +2,7 @@
 
 namespace CarBook.DTO.CarDtos
 {
-    public class ResultCarWithBrandDtos
+    public class ResultCarWithBrandDto
     {
         public int CarId { get; set; }
         public int BrandId { get; set; }
