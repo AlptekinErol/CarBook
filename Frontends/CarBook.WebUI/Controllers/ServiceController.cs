@@ -19,7 +19,7 @@ namespace CarBook.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<List<ResultsServiceDto>>(jsonData);
+                var data = JsonConvert.DeserializeObject<List<ResultServiceDto>>(jsonData);
 
                 return View(data);
             }

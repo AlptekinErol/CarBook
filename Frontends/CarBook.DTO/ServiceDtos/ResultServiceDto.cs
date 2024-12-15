@@ -1,6 +1,6 @@
 ﻿namespace CarBook.DTO.ServiceDtos
 {
-    public class ResultsServiceDto
+    public class ResultServiceDto
     {
         public int ServiceId { get; set; }
         public string IconUrl { get; set; }

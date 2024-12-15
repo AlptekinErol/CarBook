@@ -1,4 +1,4 @@
-﻿using CarBook.DTO.ServiceDtos;
+﻿using CarBook.DTO.CarDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -14,12 +14,12 @@ namespace CarBook.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7003/api/Cars/GetCarWithBrand");
+            var responseMessage = await client.GetAsync("https://localhost:7003/api/Car/GetCarWithBrand");
 
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var data = JsonConvert.DeserializeObject<List<ResultsServiceDto>>(jsonData);
+                var data = JsonConvert.DeserializeObject<List<ResultCarWithBrandDto>>(jsonData);
 
                 return View(data);
             }
