@@ -3,19 +3,18 @@ using CarBook.Application.Interfaces.CarInterfaces;
 
 namespace CarBook.Application.Features.CQRS.Handlers.QueryHandlers.CarHandlers
 {
-    public class GetCarWithBrandQueryHandler
+    public class Get5CarWithBrandQueryHandler
     {
         private readonly ICarRepository carRepository;
-
-        public GetCarWithBrandQueryHandler(ICarRepository carRepository)
+        public Get5CarWithBrandQueryHandler(ICarRepository carRepository)
         {
             this.carRepository = carRepository;
         }
 
-        public List<GetCarWithBrandQueryResult> Handle()
+        public List<Get5CarWithBrandQueryResult> Handle()
         {
-            var data = carRepository.GetCarListWithBrands();
-            return data.Select(x => new GetCarWithBrandQueryResult
+            var data = carRepository.Get5CarWithBrands();
+            return data.Select(x => new Get5CarWithBrandQueryResult
             {
                 BrandName = x.Brand.Name, // özel repo sayesinde ilişkili marka verisine ulaştık
                 BrandId = x.BrandId,

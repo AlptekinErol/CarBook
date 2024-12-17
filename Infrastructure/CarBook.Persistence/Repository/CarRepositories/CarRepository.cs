@@ -2,11 +2,6 @@
 using CarBook.Domain.Entities;
 using CarBook.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarBook.Persistence.Repository.CarRepositories
 {
@@ -16,6 +11,12 @@ namespace CarBook.Persistence.Repository.CarRepositories
         public CarRepository(CarBookContext context)
         {
             this.context = context;
+        }
+
+        public List<Car> Get5CarWithBrands()
+        {
+            var data = context.Cars.Include(x => x.Brand).OrderByDescending(x => x.Id).Take(5).ToList();
+            return data;
         }
         public List<Car> GetCarListWithBrands()
         {
