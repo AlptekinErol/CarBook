@@ -58,6 +58,7 @@ namespace CarBook.Bootstrapper.Extensions
             services.AddScoped<RemoveCarCommandHandler>();
             services.AddScoped<UpdateCarCommandHandler>();
             services.AddScoped<GetCarWithBrandQueryHandler>();
+            services.AddScoped<Get5CarWithBrandQueryHandler>();
 
             return services;
         }

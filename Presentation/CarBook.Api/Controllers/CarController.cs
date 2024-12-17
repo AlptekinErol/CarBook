@@ -16,13 +16,15 @@ namespace CarBook.Api.Controllers
         private readonly UpdateCarCommandHandler updateCarCommandHandler;
         private readonly RemoveCarCommandHandler removeCarCommandHandler;
         private readonly GetCarWithBrandQueryHandler getCarWithBrandQueryHandler;
+        private readonly Get5CarWithBrandQueryHandler get5CarWithBrandQueryHandler;
 
         public CarController(GetCarQueryHandler getCarQueryHandler,
             GetCarByIdQueryHandler getCarByIdQueryHandler,
             CreateCarCommandHandler createCarCommandHandler,
             UpdateCarCommandHandler updateCarCommandHandler,
             RemoveCarCommandHandler removeCarCommandHandler,
-            GetCarWithBrandQueryHandler getCarWithBrandQueryHandler)
+            GetCarWithBrandQueryHandler getCarWithBrandQueryHandler,
+            Get5CarWithBrandQueryHandler get5CarWithBrandQueryHandler)
         {
             this.getCarQueryHandler = getCarQueryHandler;
             this.getCarByIdQueryHandler = getCarByIdQueryHandler;
@@ -30,6 +32,7 @@ namespace CarBook.Api.Controllers
             this.updateCarCommandHandler = updateCarCommandHandler;
             this.removeCarCommandHandler = removeCarCommandHandler;
             this.getCarWithBrandQueryHandler = getCarWithBrandQueryHandler;
+            this.get5CarWithBrandQueryHandler = get5CarWithBrandQueryHandler;
         }
 
         [HttpGet]
@@ -42,7 +45,7 @@ namespace CarBook.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCarById(int id)
         {
-            var data = await getCarByIdQueryHandler.Handle(new GetCarByIdQuery(id));
+            var data = await getCarByIdQueryHandler. (new GetCarByIdQuery(id));
             return Ok(data);
         }
 
@@ -69,8 +72,16 @@ namespace CarBook.Api.Controllers
         [HttpGet("GetCarWithBrand")]
         public IActionResult GetCarWithBrand()
         {
-            var data = getCarWithBrandQueryHandler.Handle(); 
+            var data = getCarWithBrandQueryHandler.Handle();
             return Ok(data);
         }
+
+        [HttpGet("Get5CarWithBrand")]
+        public IActionResult Get5CarWithBrand()
+        {
+            var data = get5CarWithBrandQueryHandler.Handle();
+            return Ok(data);
+        }
+
     }
 }
