@@ -45,7 +45,7 @@ namespace CarBook.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCarById(int id)
         {
-            var data = await getCarByIdQueryHandler. (new GetCarByIdQuery(id));
+            var data = await getCarByIdQueryHandler.Handle(new GetCarByIdQuery(id));
             return Ok(data);
         }
 
