@@ -82,6 +82,5 @@ namespace CarBook.Api.Controllers
             var data = get5CarWithBrandQueryHandler.Handle();
             return Ok(data);
         }
-
     }
 }
