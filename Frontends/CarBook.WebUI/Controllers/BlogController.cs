@@ -16,7 +16,7 @@ namespace BlogBook.WebUI.Controllers
             ViewBag.v1 = "Bloglar";
             ViewBag.v2 = "Yazarlarımızın Blogları";
             var client = httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7003/api/Blog/BlogsWithAuthor");
+            var responseMessage = await client.GetAsync("https://localhost:7003/api/Blogs/BlogsWithAuthor");
 
             if (responseMessage.IsSuccessStatusCode)
             {
