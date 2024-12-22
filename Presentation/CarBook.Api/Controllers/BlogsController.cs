@@ -7,10 +7,10 @@ namespace CarBook.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BlogController : ControllerBase
+    public class BlogsController : ControllerBase
     {
         private readonly IMediator mediator;
-        public BlogController(IMediator mediator)
+        public BlogsController(IMediator mediator)
         {
             this.mediator = mediator;
         }

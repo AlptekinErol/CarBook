@@ -1,6 +1,5 @@
 ﻿using CarBook.Application.Features.Mediator.Handlers.QueryHandlers.AuthorHandlers;
 using CarBook.Application.Features.Mediator.Queries.AuthorQueries;
-using CarBook.Application.Features.Mediator.Results.AuthorResults;
 using CarBook.Application.Interfaces;
 using CarBook.Domain.Entities;
 using Moq;

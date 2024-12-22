@@ -10,7 +10,7 @@ namespace CarBook.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BannerController : ControllerBase
+    public class BannersController : ControllerBase
     {
         private readonly GetBannerQueryHandler getBannerQueryHandler;
         private readonly GetBannerByIdQueryHandler getBannerByIdQueryHandler;
@@ -18,7 +18,7 @@ namespace CarBook.Api.Controllers
         private readonly UpdateBannerCommandHandler updateBannerCommandHandler;
         private readonly RemoveBannerCommandHandler removeBannerCommandHandler;
 
-        public BannerController(GetBannerQueryHandler getBannerQueryHandler,
+        public BannersController(GetBannerQueryHandler getBannerQueryHandler,
             GetBannerByIdQueryHandler getBannerByIdQueryHandler,
             CreateBannerCommandHandler createBannerCommandHandler,
             UpdateBannerCommandHandler updateBannerCommandHandler,

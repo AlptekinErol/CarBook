@@ -8,7 +8,7 @@ namespace CarBook.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AboutController : ControllerBase
+    public class AboutsController : ControllerBase
     {
         private readonly CreateAboutCommandHandler createAboutCommandHandler;
         private readonly GetAboutByIdQueryHandler getAboutByIdQueryHandler;
@@ -16,7 +16,7 @@ namespace CarBook.Api.Controllers
         private readonly RemoveAboutCommandHandler removeAboutCommandHandler;
         private readonly UpdateAboutCommandHandler updateAboutCommandHandler;
 
-        public AboutController(CreateAboutCommandHandler createAboutCommandHandler,
+        public AboutsController(CreateAboutCommandHandler createAboutCommandHandler,
                GetAboutByIdQueryHandler getAboutByIdQueryHandler,
                GetAboutQueryHandler getAboutQueryHandler,
                RemoveAboutCommandHandler removeAboutCommandHandler,
