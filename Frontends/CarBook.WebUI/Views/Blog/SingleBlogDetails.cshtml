@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "SingleBlogDetails";
     Layout = "~/Views/UILayout/Index.cshtml";
 }
@@ -7,8 +6,8 @@
 <section class="ftco-section ftco-degree-bg">
     <div class="container">
         <div class="row">
-            
-            @await Component.InvokeAsync("_SingleBlogDetailsMainComponentPartial")
+
+            @await Component.InvokeAsync("_SingleBlogDetailsMainComponentPartial", new { id = ViewBag.blogid }) @* yazıların bulunduğu view partial *@
 
             <div class="col-md-4 sidebar ftco-animate">
 
@@ -21,7 +20,7 @@
                 @await Component.InvokeAsync("_SingleBlogDetailsTagCloudComponentPartial")
 
                 @await Component.InvokeAsync("_SingleBlogDetailsParagraphComponentPartial")
-                                                         
+
             </div>
 
         </div>
