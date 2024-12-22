@@ -29,7 +29,7 @@ namespace CarBook.WebUI.Controllers
 
             var jsonData = JsonConvert.SerializeObject(createContactDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7003/api/Contact", stringContent);
+            var responseMessage = await client.PostAsync("https://localhost:7003/api/Contacts", stringContent);
 
             if (responseMessage.IsSuccessStatusCode)
             {
