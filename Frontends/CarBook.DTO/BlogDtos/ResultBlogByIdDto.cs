@@ -1,8 +1,6 @@
-﻿using CarBook.Domain.Entities;
-
-namespace CarBook.Application.Features.Mediator.Results.BlogResults
+﻿namespace CarBook.DTO.BlogDtos
 {
-    public class GetBlogByIdQueryResult
+    public class ResultBlogByIdDto
     {
         public int BlogId { get; set; }
         public string Title { get; set; }
