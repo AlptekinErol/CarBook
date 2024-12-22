@@ -1,5 +1,4 @@
-﻿using CarBook.Domain.Entities;
-using MediatR;
+﻿using MediatR;
 
 namespace CarBook.Application.Features.Mediator.Commands.BlogCommands
 {
