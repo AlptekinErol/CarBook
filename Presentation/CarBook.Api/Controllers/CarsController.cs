@@ -8,7 +8,7 @@ namespace CarBook.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarController : ControllerBase
+    public class CarsController : ControllerBase
     {
         private readonly GetCarQueryHandler getCarQueryHandler;
         private readonly GetCarByIdQueryHandler getCarByIdQueryHandler;
@@ -18,7 +18,7 @@ namespace CarBook.Api.Controllers
         private readonly GetCarWithBrandQueryHandler getCarWithBrandQueryHandler;
         private readonly Get5CarWithBrandQueryHandler get5CarWithBrandQueryHandler;
 
-        public CarController(GetCarQueryHandler getCarQueryHandler,
+        public CarsController(GetCarQueryHandler getCarQueryHandler,
             GetCarByIdQueryHandler getCarByIdQueryHandler,
             CreateCarCommandHandler createCarCommandHandler,
             UpdateCarCommandHandler updateCarCommandHandler,

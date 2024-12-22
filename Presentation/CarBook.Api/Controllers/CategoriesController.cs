@@ -9,7 +9,7 @@ namespace CarBook.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
         private readonly GetCategoryQueryHandler getCategoryQueryHandler;
         private readonly GetCategoryByIdQueryHandler getCategoryByIdQueryHandler;
@@ -17,7 +17,7 @@ namespace CarBook.Api.Controllers
         private readonly UpdateCategoryCommandHandler updateCategoryCommandHandler;
         private readonly RemoveCategoryCommandHandler removeCategoryCommandHandler;
 
-        public CategoryController(GetCategoryQueryHandler getCategoryQueryHandler,
+        public CategoriesController(GetCategoryQueryHandler getCategoryQueryHandler,
             GetCategoryByIdQueryHandler getCategoryByIdQueryHandler,
             CreateCategoryCommandHandler createCategoryCommandHandler,
             UpdateCategoryCommandHandler updateCategoryCommandHandler,
