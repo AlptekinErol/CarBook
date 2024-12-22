@@ -8,7 +8,7 @@ namespace CarBook.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ContactController : ControllerBase
+    public class ContactsController : ControllerBase
     {
         private readonly GetContactQueryHandler getContactQueryHandler;
         private readonly GetContactByIdQueryHandler getContactByIdQueryHandler;
@@ -16,7 +16,7 @@ namespace CarBook.Api.Controllers
         private readonly UpdateContactCommandHandler updateContactCommandHandler;
         private readonly RemoveContactCommandHandler removeContactCommandHandler;
 
-        public ContactController(GetContactQueryHandler getContactQueryHandler,
+        public ContactsController(GetContactQueryHandler getContactQueryHandler,
             GetContactByIdQueryHandler getContactByIdQueryHandler,
             CreateContactCommandHandler createContactCommandHandler,
             UpdateContactCommandHandler updateContactCommandHandler,
