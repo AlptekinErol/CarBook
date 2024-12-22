@@ -28,10 +28,11 @@ namespace BlogBook.WebUI.Controllers
             return View();
         }
 
-        public IActionResult SingleBlogDetails() 
+        public async Task<IActionResult> SingleBlogDetails(int id)
         {
             ViewBag.v1 = "Bloglar";
             ViewBag.v2 = "Single Blog Detayı ve Yorumlar";
+            ViewBag.blogid = id;
             return View();
         }
     }

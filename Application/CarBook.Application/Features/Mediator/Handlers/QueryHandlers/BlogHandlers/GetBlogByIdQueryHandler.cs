@@ -21,6 +21,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.QueryHandlers.BlogHandl
                 BlogId = data.Id,
                 Title = data.Title,
                 CoverImageUrl = data.CoverImageUrl,
+                Description = data.Description,
                 AuthorId = data.AuthorId,
                 CategoryId = data.CategoryId,
                 CreatedDate = data.CreatedDate,
