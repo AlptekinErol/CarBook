@@ -10,11 +10,15 @@ namespace CarBook.Api.Controllers
     public class TagCloudsController : ControllerBase
     {
         private readonly IMediator mediator;
+
         public TagCloudsController(IMediator mediator)
         {
             this.mediator = mediator;
         }
 
+        /// <summary>
+        /// Tüm TagCloud'ları getirir.
+        /// </summary>
         [HttpGet]
         public async Task<IActionResult> TagCloudList()
         {
@@ -22,6 +26,9 @@ namespace CarBook.Api.Controllers
             return Ok(data);
         }
 
+        /// <summary>
+        /// Belirli bir TagCloud'u ID ile getirir.
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTagCloud(int id)
         {
@@ -29,6 +36,19 @@ namespace CarBook.Api.Controllers
             return Ok(data);
         }
 
+        /// <summary>
+        /// Belirli bir Blog ID'ye ait TagCloud'u getirir.
+        /// </summary>
+        [HttpGet("blog/{blogId}")]
+        public async Task<IActionResult> GetTagCloudByBlogId(int blogId)
+        {
+            var data = await mediator.Send(new GetTagCloudByBlogIdQuery(blogId));
+            return Ok(data);
+        }
+
+        /// <summary>
+        /// Yeni bir TagCloud oluşturur.
+        /// </summary>
         [HttpPost]
         public async Task<IActionResult> CreateTagCloud(CreateTagCloudCommand command)
         {
@@ -36,6 +56,9 @@ namespace CarBook.Api.Controllers
             return Ok("TagCloud Created");
         }
 
+        /// <summary>
+        /// Mevcut bir TagCloud'u günceller.
+        /// </summary>
         [HttpPut]
         public async Task<IActionResult> UpdateTagCloud(UpdateTagCloudCommand command)
         {
@@ -43,10 +66,13 @@ namespace CarBook.Api.Controllers
             return Ok("TagCloud Updated");
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> RemoveTagCloud(RemoveTagCloudCommand command)
+        /// <summary>
+        /// Bir TagCloud'u siler.
+        /// </summary>
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> RemoveTagCloud(int id)
         {
-            await mediator.Send(command);
+            await mediator.Send(new RemoveTagCloudCommand(id));
             return Ok("TagCloud Deleted");
         }
     }
