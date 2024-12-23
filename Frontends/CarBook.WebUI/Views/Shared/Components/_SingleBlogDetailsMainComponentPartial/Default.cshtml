@@ -10,7 +10,7 @@
     </p>
     @await Component.InvokeAsync("_SingleBlogDetailsMainTagCloudByBlogComponentPartial", new { id = ViewBag.blogid })
 
-    @await Component.InvokeAsync("_SingleBlogDetailsMainAuthorAboutComponentPartial")
+    @await Component.InvokeAsync("_SingleBlogDetailsMainAuthorAboutComponentPartial", new { id = ViewBag.blogid })
 
     <div class="pt-5 mt-5">
         <h3 class="mb-5">6 Yorum</h3>
