@@ -1,5 +1,4 @@
 ﻿using CarBook.Common.Enums;
-using CarBook.Domain.Entities;
 
 namespace CarBook.Application.Features.CQRS.Commands.CarCommands
 {
