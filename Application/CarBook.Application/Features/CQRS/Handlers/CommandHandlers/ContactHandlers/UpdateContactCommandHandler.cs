@@ -18,7 +18,7 @@ namespace CarBook.Application.Features.CQRS.Handlers.CommandHandlers.ContactHand
         }
         public async Task Handle(UpdateContactCommand command)
         {
-            var data = await repository.GetByIdAsync(command.Id);
+            var data = await repository.GetByIdAsync(command.ContactId);
             data.EMail = command.EMail;
             data.Subject = command.Subject;
             data.Name = command.Name;
