@@ -43,10 +43,10 @@ namespace CarBook.Api.Controllers
             return Ok("Author Updated");
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> RemoveAuthor(RemoveAuthorCommand command)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> RemoveAuthor(int id)
         {
-            await mediator.Send(command);
+            await mediator.Send(new RemoveAuthorCommand(id));
             return Ok("Author Deleted");
         }
     }
