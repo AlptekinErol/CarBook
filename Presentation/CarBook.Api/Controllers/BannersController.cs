@@ -59,7 +59,7 @@ namespace CarBook.Api.Controllers
             await updateBannerCommandHandler.Handle(command);
             return Ok("Banner updated");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveBrand(int id)
         {
             await removeBannerCommandHandler.Handle(new RemoveBannerCommand(id));
