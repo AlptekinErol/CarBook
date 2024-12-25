@@ -13,13 +13,12 @@ namespace CarBook.Application.Features.CQRS.Handlers.CommandHandlers.AboutHandle
         }
         public async Task Handle(UpdateAboutCommand command)
         {
-            var data = await repository.GetByIdAsync(command.AboutId);
-
+            var data = await repository.GetByIdAsync(command.Id);
+            data.Description = command.Description;
             data.Title = command.Title;
             data.Description = command.Description;
             data.CreatedDate = command.CreatedDate;
-            data.ImageUrl = command.ImageUrl;
-            data.UpdatedDate = DateTime.Now;
+            data.UpdatedDate = command.UpdatedDate;
             await repository.UpdateAsync(data);
         }
     }

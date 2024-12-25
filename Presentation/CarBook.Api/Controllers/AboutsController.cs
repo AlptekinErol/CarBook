@@ -49,7 +49,7 @@ namespace CarBook.Api.Controllers
             return Ok("About Created");
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public async Task<IActionResult> RemoveAbout(int id)
         {
             await removeAboutCommandHandler.Handle(new RemoveAboutCommand(id));
