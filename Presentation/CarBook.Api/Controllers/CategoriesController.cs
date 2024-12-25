@@ -58,7 +58,7 @@ namespace CarBook.Api.Controllers
             await updateCategoryCommandHandler.Handle(command);
             return Ok("Category updated");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveBrand(int id)
         {
             await removeCategoryCommandHandler.Handle(new RemoveCategoryCommand(id));

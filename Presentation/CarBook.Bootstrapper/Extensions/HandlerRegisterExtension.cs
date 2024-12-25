@@ -6,7 +6,6 @@ namespace CarBook.Bootstrapper.Extensions
     {
         public static IServiceCollection HandlerRegister(this IServiceCollection services)
         {
-            services.AddAboutHandlers();
             services.AddBrandHandlers();
             services.AddBannerHandlers();
             services.AddCarHandlers();
