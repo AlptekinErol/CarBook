@@ -1,22 +1,25 @@
-﻿using CarBook.Application.Features.CQRS.Commands.Brands;
+﻿using CarBook.Application.Features.Mediator.Commands.BrandCommands;
 using CarBook.Application.Interfaces;
 using CarBook.Domain.Entities;
+using MediatR;
 
 namespace CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BrandCommandHandlers
 {
-    public class CreateBrandCommandHandler
+    public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand>
     {
         private readonly IRepository<Brand> repository;
         public CreateBrandCommandHandler(IRepository<Brand> repository)
         {
             this.repository = repository;
         }
-
-        public async Task Handle(CreateBrandCommand command)
+        public async Task Handle(CreateBrandCommand request, CancellationToken cancellationToken)
         {
             await repository.CreateAsync(new Brand
             {
-                Name = command.Name
+                Name = request.Name,
+                CreatedDate = DateTime.UtcNow,
+                UpdatedDate = request.UpdatedDate,
+
             });
         }
     }
