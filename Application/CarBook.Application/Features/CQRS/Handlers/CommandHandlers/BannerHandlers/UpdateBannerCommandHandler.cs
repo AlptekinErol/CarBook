@@ -20,6 +20,7 @@ namespace CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BannerHandl
             data.VideoUrl= command.VideoUrl;
             data.CreatedDate= command.CreatedDate;
             data.UpdatedDate= command.UpdatedDate;
+            await repository.UpdateAsync(data);
         }
     }
 }

@@ -17,10 +17,10 @@ namespace CarBook.Api.Controllers
         private readonly UpdateBrandCommandHandler updateBrandCommandHandler;
         private readonly RemoveBrandCommandHandler removeBrandCommandHandler;
 
-        public BrandsController(GetBrandQueryHandler getBrandQueryHandler, 
-            GetBrandByIdQueryHandler getBrandByIdQueryHandler, 
-            CreateBrandCommandHandler createBrandCommandHandler, 
-            UpdateBrandCommandHandler updateBrandCommandHandler, 
+        public BrandsController(GetBrandQueryHandler getBrandQueryHandler,
+            GetBrandByIdQueryHandler getBrandByIdQueryHandler,
+            CreateBrandCommandHandler createBrandCommandHandler,
+            UpdateBrandCommandHandler updateBrandCommandHandler,
             RemoveBrandCommandHandler removeBrandCommandHandler)
         {
             this.getBrandQueryHandler = getBrandQueryHandler;
@@ -57,7 +57,7 @@ namespace CarBook.Api.Controllers
             await updateBrandCommandHandler.Handle(command);
             return Ok("Brand updated");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveBrand(int id)
         {
             await removeBrandCommandHandler.Handle(new RemoveBrandCommand(id));
