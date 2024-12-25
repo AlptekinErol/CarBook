@@ -1,6 +1,4 @@
-﻿using CarBook.Domain.Entities;
-
-namespace CarBook.Application.Features.CQRS.Results.BrandResults
+﻿namespace CarBook.Application.Features.Mediator.Results.BrandResults
 {
     public class GetBrandQueryResult
     {

@@ -1,20 +1,20 @@
-﻿using CarBook.Application.Features.CQRS.Commands.BrandCommands;
+﻿using CarBook.Application.Features.Mediator.Commands.BrandCommands;
 using CarBook.Application.Interfaces;
 using CarBook.Domain.Entities;
+using MediatR;
 
 namespace CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BrandCommandHandlers
 {
-    public class RemoveBrandCommandHandler
+    public class RemoveBrandCommandHandler : IRequestHandler<RemoveBrandCommand>
     {
         private readonly IRepository<Brand> repository;
         public RemoveBrandCommandHandler(IRepository<Brand> repository)
         {
             this.repository = repository;
         }
-
-        public async Task Handle(RemoveBrandCommand command)
+        public async Task Handle(RemoveBrandCommand request, CancellationToken cancellationToken)
         {
-            var data = await repository.GetByIdAsync(command.Id);
+            var data = await repository.GetByIdAsync(request.Id);
             await repository.RemoveAsync(data);
         }
     }

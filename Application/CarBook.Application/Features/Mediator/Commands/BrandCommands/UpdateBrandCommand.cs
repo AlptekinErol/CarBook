@@ -1,6 +1,8 @@
-﻿namespace CarBook.Application.Features.CQRS.Commands.BrandCommands
+﻿using MediatR;
+
+namespace CarBook.Application.Features.Mediator.Commands.BrandCommands
 {
-    public class UpdateBrandCommand
+    public class UpdateBrandCommand : IRequest
     {
         public int BrandId { get; set; }
         public string Name { get; set; }
