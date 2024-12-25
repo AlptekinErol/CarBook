@@ -1,32 +1,20 @@
-﻿using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.AboutHandlers;
-using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BannerHandlers;
+﻿using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BannerHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BrandCommandHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.CarHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.CategoryHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.ContactHandlers;
-using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.AboutHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BannerHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BrandHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.CarHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.CategoryHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.ContactHandlers;
+
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CarBook.Bootstrapper.Extensions
 {
     public static class HandlerExtensions
     {
-        public static IServiceCollection AddAboutHandlers(this IServiceCollection services)
-        {
-            // About
-            services.AddScoped<GetAboutByIdQueryHandler>();
-            services.AddScoped<GetAboutQueryHandler>();
-            services.AddScoped<CreateAboutCommandHandler>();
-            services.AddScoped<RemoveAboutCommandHandler>();
-            services.AddScoped<UpdateAboutCommandHandler>();
-
-            return services;
-        }
         public static IServiceCollection AddBrandHandlers(this IServiceCollection services)
         {
             // Brand
