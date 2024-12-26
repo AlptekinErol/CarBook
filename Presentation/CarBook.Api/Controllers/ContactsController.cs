@@ -57,7 +57,8 @@ namespace CarBook.Api.Controllers
             await updateContactCommandHandler.Handle(command);
             return Ok("Contact updated");
         }
-        [HttpDelete]
+
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveBrand(int id)
         {
             await removeContactCommandHandler.Handle(new RemoveContactCommand(id));

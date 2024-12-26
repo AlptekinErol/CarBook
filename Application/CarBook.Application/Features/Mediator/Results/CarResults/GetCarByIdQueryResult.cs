@@ -1,6 +1,6 @@
 ﻿using CarBook.Common.Enums;
 
-namespace CarBook.Application.Features.CQRS.Results.CarResults
+namespace CarBook.Application.Features.Mediator.Results.CarResults
 {
     public class GetCarByIdQueryResult
     {

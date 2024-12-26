@@ -1,7 +1,6 @@
-﻿using CarBook.Application.Features.CQRS.Commands.CarCommands;
-using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.CarHandlers;
-using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.CarHandlers;
-using CarBook.Application.Features.CQRS.Queries.CarQueries;
+﻿using CarBook.Application.Features.Mediator.Commands.CarCommands;
+using CarBook.Application.Features.Mediator.Queries.CarQueries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.Api.Controllers
@@ -10,77 +9,45 @@ namespace CarBook.Api.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        private readonly GetCarQueryHandler getCarQueryHandler;
-        private readonly GetCarByIdQueryHandler getCarByIdQueryHandler;
-        private readonly CreateCarCommandHandler createCarCommandHandler;
-        private readonly UpdateCarCommandHandler updateCarCommandHandler;
-        private readonly RemoveCarCommandHandler removeCarCommandHandler;
-        private readonly GetCarWithBrandQueryHandler getCarWithBrandQueryHandler;
-        private readonly Get5CarWithBrandQueryHandler get5CarWithBrandQueryHandler;
-
-        public CarsController(GetCarQueryHandler getCarQueryHandler,
-            GetCarByIdQueryHandler getCarByIdQueryHandler,
-            CreateCarCommandHandler createCarCommandHandler,
-            UpdateCarCommandHandler updateCarCommandHandler,
-            RemoveCarCommandHandler removeCarCommandHandler,
-            GetCarWithBrandQueryHandler getCarWithBrandQueryHandler,
-            Get5CarWithBrandQueryHandler get5CarWithBrandQueryHandler)
+        private readonly IMediator mediator;
+        public CarsController(IMediator mediator)
         {
-            this.getCarQueryHandler = getCarQueryHandler;
-            this.getCarByIdQueryHandler = getCarByIdQueryHandler;
-            this.createCarCommandHandler = createCarCommandHandler;
-            this.updateCarCommandHandler = updateCarCommandHandler;
-            this.removeCarCommandHandler = removeCarCommandHandler;
-            this.getCarWithBrandQueryHandler = getCarWithBrandQueryHandler;
-            this.get5CarWithBrandQueryHandler = get5CarWithBrandQueryHandler;
+            this.mediator = mediator;
         }
 
         [HttpGet]
         public async Task<IActionResult> CarList()
         {
-            var data = await getCarQueryHandler.Handle();
+            var data = await mediator.Send(new GetCarQuery());
             return Ok(data);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCarById(int id)
+        public async Task<IActionResult> GetCar(int id)
         {
-            var data = await getCarByIdQueryHandler.Handle(new GetCarByIdQuery(id));
+            var data = await mediator.Send(new GetCarByIdQuery(id));
             return Ok(data);
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateCar(CreateCarCommand command)
         {
-            await createCarCommandHandler.Handle(command);
-            return Ok("Car created");
+            await mediator.Send(command);
+            return Ok("Car Created");
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateCar(UpdateCarCommand command)
         {
-            await updateCarCommandHandler.Handle(command);
-            return Ok("Car updated");
+            await mediator.Send(command);
+            return Ok("Car Updated");
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> RemoveCar(int id)
+        [HttpDelete]
+        public async Task<IActionResult> RemoveCar(RemoveCarCommand command)
         {
-            await removeCarCommandHandler.Handle(new RemoveCarCommand(id));
-            return Ok("Car deleted");
-        }
-        [HttpGet("GetCarWithBrand")]
-        public IActionResult GetCarWithBrand()
-        {
-            var data = getCarWithBrandQueryHandler.Handle();
-            return Ok(data);
-        }
-
-        [HttpGet("Get5CarWithBrand")]
-        public IActionResult Get5CarWithBrand()
-        {
-            var data = get5CarWithBrandQueryHandler.Handle();
-            return Ok(data);
+            await mediator.Send(command);
+            return Ok("Car Deleted");
         }
     }
 }

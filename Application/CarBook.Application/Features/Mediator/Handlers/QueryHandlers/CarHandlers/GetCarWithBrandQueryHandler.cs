@@ -1,20 +1,22 @@
-﻿using CarBook.Application.Features.CQRS.Results.CarResults;
+﻿using CarBook.Application.Features.Mediator.Queries.CarQueries;
+using CarBook.Application.Features.Mediator.Results.CarResults;
 using CarBook.Application.Interfaces.CarInterfaces;
+using MediatR;
 
-namespace CarBook.Application.Features.CQRS.Handlers.QueryHandlers.CarHandlers
+namespace CarBook.Application.Features.Mediator.Handlers.QueryHandlers.CarHandlers
 {
-    public class Get5CarWithBrandQueryHandler
+    public class GetCarWithBrandQueryHandler : IRequestHandler<GetCarWithBrandQuery, List<GetCarWithBrandQueryResult>>
     {
         private readonly ICarRepository carRepository;
-        public Get5CarWithBrandQueryHandler(ICarRepository carRepository)
+
+        public GetCarWithBrandQueryHandler(ICarRepository carRepository)
         {
             this.carRepository = carRepository;
         }
-
-        public List<Get5CarWithBrandQueryResult> Handle()
+        public async Task<List<GetCarWithBrandQueryResult>> Handle(GetCarWithBrandQuery request, CancellationToken cancellationToken)
         {
-            var data = carRepository.Get5CarWithBrands();
-            return data.Select(x => new Get5CarWithBrandQueryResult
+            var data = carRepository.GetCarListWithBrands();
+            return data.Select(x => new GetCarWithBrandQueryResult
             {
                 BrandName = x.Brand.Name, // özel repo sayesinde ilişkili marka verisine ulaştık
                 BrandId = x.BrandId,

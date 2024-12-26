@@ -43,7 +43,7 @@ namespace CarBook.Api.Controllers
             return Ok("Banner Updated");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveBanner(RemoveBannerCommand command)
         {
             await mediator.Send(command);

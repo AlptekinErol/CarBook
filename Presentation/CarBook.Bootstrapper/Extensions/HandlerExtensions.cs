@@ -1,14 +1,13 @@
 ﻿using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BannerHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BrandCommandHandlers;
-using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.CarHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.CategoryHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CommandHandlers.ContactHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BannerHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BrandHandlers;
-using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.CarHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.CategoryHandlers;
 using CarBook.Application.Features.CQRS.Handlers.QueryHandlers.ContactHandlers;
-
+using CarBook.Application.Features.Mediator.Handlers.CommandHandlers.CarHandlers;
+using CarBook.Application.Features.Mediator.Handlers.QueryHandlers.CarHandlers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CarBook.Bootstrapper.Extensions

@@ -43,7 +43,7 @@ namespace CarBook.Api.Controllers
             return Ok("Brand Updated");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveBrand(RemoveBrandCommand command)
         {
             await mediator.Send(command);

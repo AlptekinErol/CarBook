@@ -42,7 +42,7 @@ namespace CarBook.Api.Controllers
             return Ok("Footer Address Updated");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveFooterAddress(RemoveFooterAddressCommand command)
         {
             await mediator.Send(command);
