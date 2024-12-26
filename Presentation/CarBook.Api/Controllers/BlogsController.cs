@@ -64,7 +64,7 @@ namespace CarBook.Api.Controllers
             return Ok("Blog Updated");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveBlog(RemoveBlogCommand command)
         {
             await mediator.Send(command);

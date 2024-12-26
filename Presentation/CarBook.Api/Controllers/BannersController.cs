@@ -1,4 +1,4 @@
-﻿using CarBook.Application.Features.CQRS.Commands.BannerCommands;
+﻿using CarBook.Application.Features.Mediator.Commands.BannerCommands;
 using CarBook.Application.Features.Mediator.Queries.BannerQueries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -43,7 +43,7 @@ namespace CarBook.Api.Controllers
             return Ok("Banner Updated");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveBanner(RemoveBannerCommand command)
         {
             await mediator.Send(command);
