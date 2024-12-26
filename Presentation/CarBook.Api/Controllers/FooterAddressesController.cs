@@ -43,9 +43,9 @@ namespace CarBook.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> RemoveFooterAddress(RemoveFooterAddressCommand command)
+        public async Task<IActionResult> RemoveFooterAddress(int id)
         {
-            await mediator.Send(command);
+            await mediator.Send(new RemoveFooterAddressCommand(id));
             return Ok("Footer Address Deleted");
         }
     }
