@@ -1,8 +1,9 @@
 ﻿using CarBook.Common.Enums;
+using MediatR;
 
-namespace CarBook.Application.Features.CQRS.Commands.CarCommands
+namespace CarBook.Application.Features.Mediator.Commands.CarCommands
 {
-    public class UpdateCarCommand
+    public class UpdateCarCommand : IRequest
     {
         public int CarId { get; set; }
         public int BrandId { get; set; }

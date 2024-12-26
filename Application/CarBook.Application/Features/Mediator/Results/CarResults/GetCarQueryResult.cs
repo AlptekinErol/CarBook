@@ -1,9 +1,10 @@
 ﻿using CarBook.Common.Enums;
 
-namespace CarBook.Application.Features.CQRS.Commands.CarCommands
+namespace CarBook.Application.Features.Mediator.Results.CarResults
 {
-    public class CreateCarCommand
+    public class GetCarQueryResult
     {
+        public int CarId { get; set; }
         public int BrandId { get; set; }
         public string Model { get; set; }
         public string CoverImageUrl { get; set; }
