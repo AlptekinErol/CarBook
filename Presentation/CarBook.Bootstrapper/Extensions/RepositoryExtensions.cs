@@ -1,11 +1,9 @@
-﻿using CarBook.Application.Features.RepositoryPattern;
-using CarBook.Application.Interfaces;
+﻿using CarBook.Application.Interfaces;
 using CarBook.Application.Interfaces.BlogInterfaces;
 using CarBook.Application.Interfaces.CarInterfaces;
 using CarBook.Application.Interfaces.CarPricingInterfaces;
 using CarBook.Application.Interfaces.CommentInterfaces;
 using CarBook.Application.Interfaces.TagCloudInterfaces;
-using CarBook.Domain.Entities;
 using CarBook.Persistence.Repository;
 using CarBook.Persistence.Repository.BlogRepositories;
 using CarBook.Persistence.Repository.CarPricingRepositories;

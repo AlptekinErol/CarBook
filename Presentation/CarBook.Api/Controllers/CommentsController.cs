@@ -29,7 +29,7 @@ namespace CarBook.Api.Controllers
             return Ok(data);
         }
 
-        [HttpGet("CommentByBlogId")]
+        [HttpGet("CommentByBlog")]
         public async Task<IActionResult> GetCommentByBlogId(int id)
         {
             var data = await mediator.Send(new GetCommentByBlogIdQuery(id));
