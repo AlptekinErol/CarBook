@@ -44,9 +44,9 @@ namespace CarBook.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> RemoveService(RemoveServiceCommand command)
+        public async Task<IActionResult> RemoveService(int id)
         {
-            await mediator.Send(command);
+            await mediator.Send(new RemoveServiceCommand(id));
             return Ok("Service Deleted");
         }
     }
