@@ -1,0 +1,70 @@
+﻿@model List<KeyValuePair<int, string>>
+
+@{
+    ViewData["Title"] = "Pricing Yönetimi";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Ödeme Türleri Yönetimi</h4>
+                        <p class="card-subtitle mb-4">
+                            Araçların günlük, haftalık veya aylık kiralama seçeneklerinin tanımlandığı sayfadır. Yeni ödeme türleri ekleyebilir, var olanları güncelleyebilir veya silebilirsiniz.
+                        </p>
+                        <div class="table-responsive">
+                            <table class="table mb-0 table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Periyot Adı</th>
+                                        <th>Sil</th>
+                                        <th>Güncelle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model != null && Model.Any())
+                                    {
+                                        @foreach (var item in Model)
+                                        {
+                                            count++;
+                                            <tr>
+                                                <td>@count</td>
+                                                <td>@item.Value</td>
+                                                <td>
+                                                    <a asp-area="Admin" asp-controller="Pricing" asp-action="RemovePricing" asp-route-id="@item.Key" class="btn btn-outline-danger btn-sm">
+                                                        Sil
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a asp-area="Admin" asp-controller="Pricing" asp-action="UpdatePricing" asp-route-id="@item.Key" class="btn btn-outline-success btn-sm">
+                                                        Güncelle
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr>
+                                            <td colspan="4" class="text-center text-muted">Henüz ödeme türü tanımlanmamış.</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <div class="mt-3">
+                                <a asp-area="Admin" asp-controller="Pricing" asp-action="CreatePricing" class="btn btn-outline-primary">
+                                    Yeni Ödeme Türü Ekle
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
