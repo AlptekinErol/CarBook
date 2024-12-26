@@ -43,7 +43,7 @@ namespace CarBook.Api.Controllers
             return Ok("About Updated");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveAbout(RemoveAboutCommand command)
         {
             await mediator.Send(command);
