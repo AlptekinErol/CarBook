@@ -3,6 +3,7 @@ using CarBook.Application.Interfaces;
 using CarBook.Application.Interfaces.BlogInterfaces;
 using CarBook.Application.Interfaces.CarInterfaces;
 using CarBook.Application.Interfaces.CarPricingInterfaces;
+using CarBook.Application.Interfaces.CommentInterfaces;
 using CarBook.Application.Interfaces.TagCloudInterfaces;
 using CarBook.Domain.Entities;
 using CarBook.Persistence.Repository;
@@ -25,7 +26,7 @@ namespace CarBook.Bootstrapper.Extensions
             services.AddScoped(typeof(IBlogRepository), typeof(BlogRepository)); // özel BlogRepository kayıt
             services.AddScoped(typeof(ICarPricingRepository), typeof(CarPricingRepository)); // özel CarPricingRepository kayıt
             services.AddScoped(typeof(ITagCloudRepository), typeof(TagClougRepository)); // özel TagClougRepository kayıt
-            services.AddScoped(typeof(IGenericRepository<Comment>), typeof(CommentRepository)); // özel TagClougRepository kayıt
+            services.AddScoped(typeof(ICommentRepository), typeof(CommentRepository)); // özel TagClougRepository kayıt
 
             return services;
         }

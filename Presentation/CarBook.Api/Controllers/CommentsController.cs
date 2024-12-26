@@ -1,5 +1,6 @@
-﻿using CarBook.Application.Features.RepositoryPattern;
-using CarBook.Domain.Entities;
+﻿using CarBook.Application.Features.Mediator.Commands.CommentCommands;
+using CarBook.Application.Features.Mediator.Queries.CommentQueries;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.Api.Controllers
@@ -8,47 +9,52 @@ namespace CarBook.Api.Controllers
     [ApiController]
     public class CommentsController : ControllerBase
     {
-        private readonly IGenericRepository<Comment> commentRepository;
-        public CommentsController(IGenericRepository<Comment> commentRepository)
+        private readonly IMediator mediator;
+        public CommentsController(IMediator mediator)
         {
-            this.commentRepository = commentRepository;
+            this.mediator = mediator;
         }
 
         [HttpGet]
-        public IActionResult GetCommentList()
+        public async Task<IActionResult> CommentList()
         {
-            var data = commentRepository.GetAll();
+            var data = await mediator.Send(new GetCommentQuery());
+            return Ok(data);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetComment(int id)
+        {
+            var data = await mediator.Send(new GetCommentByIdQuery(id));
+            return Ok(data);
+        }
+
+        [HttpGet("CommentByBlogId")]
+        public async Task<IActionResult> GetCommentByBlogId(int id)
+        {
+            var data = await mediator.Send(new GetCommentByBlogIdQuery(id));
             return Ok(data);
         }
 
         [HttpPost]
-        public IActionResult CreateComment(Comment comment)
+        public async Task<IActionResult> CreateComment(CreateCommentCommand command)
         {
-            commentRepository.Create(comment);
+            await mediator.Send(command);
             return Ok("Comment Created");
         }
 
-        [HttpDelete]
-        public IActionResult RemoveComment(int id)
-        {
-            var data = commentRepository.GetById(id);
-            commentRepository.Remove(data);
-            return Ok("Comment Removed");
-        }
-
         [HttpPut]
-
-        public IActionResult UpdateComment(Comment comment)
+        public async Task<IActionResult> UpdateComment(UpdateCommentCommand command)
         {
-            commentRepository.Update(comment);
+            await mediator.Send(command);
             return Ok("Comment Updated");
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetCommentById(int id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> RemoveComment(RemoveCommentCommand command)
         {
-            var data = commentRepository.GetById(id);
-            return Ok(data);
+            await mediator.Send(command);
+            return Ok("Comment Deleted");
         }
     }
 }
