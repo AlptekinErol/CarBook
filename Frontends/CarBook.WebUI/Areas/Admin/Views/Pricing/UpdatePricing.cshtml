@@ -1,0 +1,52 @@
+﻿@model KeyValuePair<int, string>
+
+@{
+    ViewData["Title"] = "Update Pricing";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Ödeme Periyodu Düzenleme Sayfası</h4>
+                        <p class="card-subtitle mb-4">
+                            Ödeme periyodu bilgilerini aşağıdaki panel üzerinden güncelleyebilirsiniz.
+                        </p>
+
+                        <form method="post" asp-action="UpdatePricing" asp-controller="Pricing" asp-area="Admin">
+                            <input type="hidden" name="id" value="@Model.Key" />
+                            <div class="form-group">
+                                <label for="pricingName">Ödeme Periyot Başlığı</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="pricingName"
+                                       name="name"
+                                       value="@Model.Value"
+                                       placeholder="Ödeme Periyot Adını Giriniz (Günlük, Haftalık, Aylık vs.)">
+                            </div>
+                            <button type="submit" class="btn btn-success waves-effect waves-light">
+                                Ödeme Periyot Bilgisini Güncelle
+                            </button>
+                            <a asp-action="Index" asp-controller="Pricing" asp-area="Admin" class="btn btn-outline-secondary ml-2">
+                                Geri Dön
+                            </a>
+                        </form>
+
+                        @if (TempData["SuccessMessage"] != null)
+                        {
+                            <div class="alert alert-success mt-3">@TempData["SuccessMessage"]</div>
+                        }
+
+                        @if (TempData["ErrorMessage"] != null)
+                        {
+                            <div class="alert alert-danger mt-3">@TempData["ErrorMessage"]</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
