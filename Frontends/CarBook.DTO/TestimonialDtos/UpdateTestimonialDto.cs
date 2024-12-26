@@ -1,9 +1,8 @@
-﻿using CarBook.Domain.Common;
-
-namespace CarBook.Domain.Entities
+﻿namespace CarBook.DTO.TestimonialDtos
 {
-    public class Testimonial : EntityBase
+    public class UpdateTestimonialDto
     {
+        public int TestimonialId { get; set; }
         public string Title { get; set; }
         public string Name { get; set; }
         public string Comment { get; set; }
