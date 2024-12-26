@@ -1,4 +1,4 @@
-﻿using CarBook.Application.Features.CQRS.Commands.BannerCommands;
+﻿using CarBook.Application.Features.Mediator.Commands.BannerCommands;
 using CarBook.Application.Features.Mediator.Queries.BannerQueries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

@@ -3,7 +3,7 @@ using CarBook.Application.Interfaces;
 using CarBook.Domain.Entities;
 using MediatR;
 
-namespace CarBook.Application.Features.CQRS.Handlers.CommandHandlers.BrandCommandHandlers
+namespace CarBook.Application.Features.Mediator.Handlers.CommandHandlers.BrandCommandHandlers
 {
     public class RemoveBrandCommandHandler : IRequestHandler<RemoveBrandCommand>
     {

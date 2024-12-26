@@ -19,9 +19,6 @@ public class Startup
         // RepositoryExtensions Registration
         services.RepositoryRegister();
 
-        // HandlerExtensions Registration
-        services.HandlerRegister();
-
         // MediatR Registration
         services.MediatRRegistration(configuration);
 
