@@ -4,6 +4,7 @@ using CarBook.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarBook.Persistence.Migrations
 {
     [DbContext(typeof(CarBookContext))]
-    partial class CarBookContextModelSnapshot : ModelSnapshot
+    [Migration("20241227142615_mig_add_rent_car_table_altered")]
+    partial class mig_add_rent_car_table_altered
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -418,37 +421,6 @@ namespace CarBook.Persistence.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("CarBook.Domain.Entities.Customer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CustomerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CustomerSurname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EMail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Customer");
-                });
-
             modelBuilder.Entity("CarBook.Domain.Entities.Feature", b =>
                 {
                     b.Property<int>("Id")
@@ -559,65 +531,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("LocationId");
 
-                    b.ToTable("RentCar");
-                });
-
-            modelBuilder.Entity("CarBook.Domain.Entities.RentProcess", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DropOffDate")
-                        .HasColumnType("Date");
-
-                    b.Property<string>("DropOffDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DropOffLocation")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DropOffTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("PickUpDate")
-                        .HasColumnType("Date");
-
-                    b.Property<string>("PickUpDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PickUpLocation")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("PickUpTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarId");
-
-                    b.HasIndex("CustomerId");
-
-                    b.ToTable("RentProcess");
+                    b.ToTable("RentCars");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Service", b =>
@@ -846,25 +760,6 @@ namespace CarBook.Persistence.Migrations
                     b.Navigation("Location");
                 });
 
-            modelBuilder.Entity("CarBook.Domain.Entities.RentProcess", b =>
-                {
-                    b.HasOne("CarBook.Domain.Entities.Car", "Car")
-                        .WithMany("RentProcesses")
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CarBook.Domain.Entities.Customer", "Customer")
-                        .WithMany("RentProcesses")
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Car");
-
-                    b.Navigation("Customer");
-                });
-
             modelBuilder.Entity("CarBook.Domain.Entities.TagCloud", b =>
                 {
                     b.HasOne("CarBook.Domain.Entities.Blog", "Blog")
@@ -902,18 +797,11 @@ namespace CarBook.Persistence.Migrations
                     b.Navigation("CarPricings");
 
                     b.Navigation("RentCars");
-
-                    b.Navigation("RentProcesses");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Blog");
-                });
-
-            modelBuilder.Entity("CarBook.Domain.Entities.Customer", b =>
-                {
-                    b.Navigation("RentProcesses");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Feature", b =>
