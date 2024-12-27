@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CarBook.Application.Features.CQRS.Commands.BannerCommands
+namespace CarBook.Application.Features.Mediator.Commands.BannerCommands
 {
     public class UpdateBannerCommand : IRequest
     {

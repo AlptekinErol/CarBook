@@ -1,8 +1,13 @@
+using CarBook.WebUI.ApiSettings;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
+// appsettings.json'dan StatisticsApiOptions'u yükle
+builder.Services.Configure<StatisticsApiOptions>(
+    builder.Configuration.GetSection("ApiSettings"));
 
 var app = builder.Build();
 

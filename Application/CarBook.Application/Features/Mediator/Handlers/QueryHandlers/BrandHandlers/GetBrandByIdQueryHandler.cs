@@ -4,7 +4,7 @@ using CarBook.Application.Interfaces;
 using CarBook.Domain.Entities;
 using MediatR;
 
-namespace CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BrandHandlers
+namespace CarBook.Application.Features.Mediator.Handlers.QueryHandlers.BrandHandlers
 {
     public class GetBrandByIdQueryHandler : IRequestHandler<GetBrandByIdQuery, GetBrandByIdQueryResult>
     {

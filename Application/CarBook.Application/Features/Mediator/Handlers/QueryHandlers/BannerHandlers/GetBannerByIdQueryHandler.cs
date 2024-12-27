@@ -4,7 +4,7 @@ using CarBook.Application.Interfaces;
 using CarBook.Domain.Entities;
 using MediatR;
 
-namespace CarBook.Application.Features.CQRS.Handlers.QueryHandlers.BannerHandlers
+namespace CarBook.Application.Features.Mediator.Handlers.QueryHandlers.BannerHandlers
 {
     public class GetBannerByIdQueryHandler : IRequestHandler<GetBannerByIdQuery, GetBannerByIdQueryResult>
     {

@@ -1,0 +1,135 @@
+﻿@model List<dynamic>
+@{
+    ViewData["Title"] = "İstatistikler";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <!-- Başlık -->
+        <div class="row">
+            <div class="col-12">
+                <h4 class="page-title">İstatistikler</h4>
+                <p class="text-muted">Sistem genelindeki veriler burada gösterilmektedir.</p>
+            </div>
+        </div>
+
+        <!-- İstatistik Kartları -->
+        <div class="row">
+            @foreach (var stat in Model)
+            {
+                <div class="col-md-6 col-xl-3">
+                    <div class="card bg-@GetCardColor(stat.Endpoint) border-@GetCardColor(stat.Endpoint)">
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <span class="badge badge-soft-light float-right">@GetEndpointBadge(stat.Endpoint)</span>
+                                <h5 class="card-title mb-0 text-white">@GetEndpointTitle(stat.Endpoint)</h5>
+                            </div>
+                            <div class="row d-flex align-items-center mb-4">
+                                <div class="col-8">
+                                    <h2 class="d-flex align-items-center mb-0 text-white">
+                                        @if (stat.Value is decimal)
+                                        {
+                                            @($"{stat.Value:C}")
+                                        }
+                                        else if (stat.Value is int)
+                                        {
+                                            @($"# {stat.Value}")
+                                        }
+                                        else
+                                        {
+                                            @stat.Value
+                                        }
+                                    </h2>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <span class="text-white-50">@stat.RandomValue% <i class="mdi mdi-arrow-up"></i></span>
+                                </div>
+                            </div>
+                            <div class="progress badge-soft-light shadow-sm" style="height: 5px;">
+                                <div class="progress-bar bg-light" role="progressbar" style="width: @stat.RandomValue%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@functions {
+    // Kart Renklerini Belirle
+    string GetCardColor(string endpoint)
+    {
+        return endpoint switch
+        {
+            "CarCount" => "primary",
+            "LocationCount" => "success",
+            "AuthorCount" => "warning",
+            "BlogCount" => "info",
+            "BrandCount" => "primary",
+            "AverageDailyRentPrice" => "success",
+            "AverageWeeklyRentPrice" => "warning",
+            "AverageMonthlyRentPrice" => "info",
+            "CarCountByTransmissionIsAuto" => "primary",
+            "BrandNameByMaxCarCount" => "success",
+            "BlogTitleByMaxComment" => "warning",
+            "CarCountKmLessThen1000" => "info",
+            "CarCountByFuelType" => "primary",
+            "CarCountElectric" => "success",
+            "CarModelByRentPriceDailyMax" => "warning",
+            "CarModelByRentPriceDailyMin" => "info",
+            _ => "secondary"
+        };
+    }
+
+    // Başlık Belirle
+    string GetEndpointTitle(string endpoint)
+    {
+        return endpoint switch
+        {
+            "CarCount" => "Toplam Araç Sayısı",
+            "LocationCount" => "Mevcut Lokasyonlar",
+            "AuthorCount" => "Toplam Personel",
+            "BlogCount" => "Toplam Blog Sayısı",
+            "BrandCount" => "Toplam Marka Sayısı",
+            "AverageDailyRentPrice" => "Günlük Ortalama Araç Fiyatı",
+            "AverageWeeklyRentPrice" => "Haftalık Ortalama Araç Fiyatı",
+            "AverageMonthlyRentPrice" => "Aylık Ortalama Araç Fiyatı",
+            "CarCountByTransmissionIsAuto" => "Otomatik Vitesli Araç Sayısı",
+            "BrandNameByMaxCarCount" => "En Fazla Araçlı Marka",
+            "BlogTitleByMaxComment" => "En Fazla Yorum Alan Blog",
+            "CarCountKmLessThen1000" => "1000 Km Altındaki Araçlar",
+            "CarCountByFuelType" => "Yakıt Türü Araç Sayısı",
+            "CarCountElectric" => "Elektrikli Araç Sayısı",
+            "CarModelByRentPriceDailyMax" => "En Pahalı Günlük Araç",
+            "CarModelByRentPriceDailyMin" => "En Ucuz Günlük Araç",
+            _ => "Bilinmeyen İstatistik"
+        };
+    }
+
+    // Badge Belirle
+    string GetEndpointBadge(string endpoint)
+    {
+        return endpoint switch
+        {
+            "CarCount" => "Aktif Araçlar",
+            "LocationCount" => "Mevcut Lokasyonlar",
+            "AuthorCount" => "Yazar Sayısı",
+            "BlogCount" => "Toplam Bloglar",
+            "BrandCount" => "Markalar",
+            "AverageDailyRentPrice" => "Günlük Fiyat",
+            "AverageWeeklyRentPrice" => "Haftalık Fiyat",
+            "AverageMonthlyRentPrice" => "Aylık Fiyat",
+            "CarCountByTransmissionIsAuto" => "Otomatik Vites",
+            "BrandNameByMaxCarCount" => "En Büyük Marka",
+            "BlogTitleByMaxComment" => "Popüler Blog",
+            "CarCountKmLessThen1000" => "Km Altı Araçlar",
+            "CarCountByFuelType" => "Yakıt Türü",
+            "CarCountElectric" => "Elektrikli Araçlar",
+            "CarModelByRentPriceDailyMax" => "En Pahalı Araç",
+            "CarModelByRentPriceDailyMin" => "En Ucuz Araç",
+            _ => "Bilinmeyen"
+        };
+    }
+}
