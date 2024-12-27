@@ -18,5 +18,8 @@ namespace CarBook.Domain.Entities
         public List<CarFeature> CarFeatures { get; set; }
         public List<CarDescription> CarDescriptions { get; set; }
         public List<CarPricing> CarPricings { get; set; }
+        public List<RentCar> RentCars { get; set; }
+        public List<RentProcess> RentProcesses { get; set; }
+
     }
 }
