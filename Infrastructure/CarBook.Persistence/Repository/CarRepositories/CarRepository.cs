@@ -18,13 +18,6 @@ namespace CarBook.Persistence.Repository.CarRepositories
             var data = context.Cars.Include(x => x.Brand).OrderByDescending(x => x.Id).Take(5).ToList();
             return data;
         }
-
-        public int GetCarCount()
-        {
-            var data = context.Cars.Count();
-            return data;
-        }
-
         public List<Car> GetCarListWithBrands()
         {
             var data = context.Cars.Include(x => x.Brand).ToList();
