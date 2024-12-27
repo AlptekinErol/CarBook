@@ -29,6 +29,20 @@ namespace CarBook.Api.Controllers
             return Ok(data);
         }
 
+        [HttpGet("5CarWithBrands")]
+        public async Task<IActionResult> Get5CarWithBrand()
+        {
+            var data = await mediator.Send(new Get5CarWithBrandQuery());
+            return Ok(data);
+        }
+
+        [HttpGet("CarWithBrands")]
+        public async Task<IActionResult> GetCarWithBrand()
+        {
+            var data = await mediator.Send(new GetCarWithBrandQuery());
+            return Ok(data);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateCar(CreateCarCommand command)
         {

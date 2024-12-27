@@ -209,9 +209,8 @@ namespace CarBook.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Km")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Km")
+                        .HasColumnType("int");
 
                     b.Property<byte>("Luggage")
                         .HasColumnType("tinyint");

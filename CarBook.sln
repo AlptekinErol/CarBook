@@ -31,7 +31,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarBook.Common", "Shared\Ca
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1C8D7763-45BA-40B0-871D-877CD2C71B14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarBook.Test", "Tests\CarBook.Test\CarBook.Test.csproj", "{1C5D3F48-6539-46EF-9BBA-3B006E115201}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarBook.Test", "Tests\CarBook.Test\CarBook.Test.csproj", "{1C5D3F48-6539-46EF-9BBA-3B006E115201}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{63474FFA-46E8-449A-BDFC-D6ECAD271632}"
+	ProjectSection(SolutionItems) = preProject
+		StatisticList.txt = StatisticList.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
