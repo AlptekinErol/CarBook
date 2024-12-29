@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\CarBook.Domain\CarBook.Domain.csproj" />
+    <ProjectReference Include="..\..\Shared\CarBook.Common\CarBook.Common.csproj" />
   </ItemGroup>
 
 </Project>
