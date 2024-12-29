@@ -8,6 +8,6 @@ namespace CarBook.Domain.Entities
         public Location Location { get; set; }
         public int CarId { get; set; }
         public Car Car { get; set; }
-        public int CarAvailable { get; set; }
+        public bool CarAvailable { get; set; }
     }
 }
