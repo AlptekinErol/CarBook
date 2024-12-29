@@ -43,7 +43,10 @@ namespace CarBook.Application.Features.Mediator.Handlers.QueryHandlers.RentCarHa
             // ✅ 5. Başarı Durumu
             return availableCars.Select(x => new GetRentCarQueryResult
             {
-                CarId = x.CarId
+                CarId = x.CarId,
+                Model = x.Car.Model,
+                BrandName = x.Car.Brand.Name,
+                CoverImageUrl = x.Car.CoverImageUrl,
             }).ToList();
         }
     }

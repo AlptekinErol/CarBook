@@ -1,6 +1,6 @@
-﻿namespace CarBook.Application.Features.Mediator.Results.RentCarResult
+﻿namespace CarBook.DTO.RentCarDtos
 {
-    public class GetRentCarQueryResult
+    public class FilterRentCarDto
     {
         public int CarId { get; set; }
         public string Model { get; set; }
@@ -9,4 +9,3 @@
         public decimal PricingAmount { get; set; }
     }
 }
-
