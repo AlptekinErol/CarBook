@@ -18,6 +18,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.QueryHandlers.CarPicing
             var data = await carPricingRepository.GetCarsWithPricings();
             return data.Select(x => new GetCarPricingsWithCarQueryResult
             {
+                CarId = x.CarId,
                 BrandName = x.Car.Brand.Name,
                 CoverImageUrl = x.Car.CoverImageUrl,
                 Model = x.Car.Model,
