@@ -35,6 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarBook.Test", "Tests\CarBo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToDoList", "ToDoList", "{63474FFA-46E8-449A-BDFC-D6ECAD271632}"
 	ProjectSection(SolutionItems) = preProject
+		AlertScripts.txt = AlertScripts.txt
 		StatisticList.txt = StatisticList.txt
 	EndProjectSection
 EndProject
