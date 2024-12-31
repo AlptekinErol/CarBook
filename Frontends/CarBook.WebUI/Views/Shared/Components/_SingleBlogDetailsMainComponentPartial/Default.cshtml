@@ -16,7 +16,8 @@
         <h3 class="mb-5">@Model.CommentCount Yorum</h3>
         @await Component.InvokeAsync("_CommentListByBlogComponentPartial", new { id = ViewBag.blogid })
 
-        @await Component.InvokeAsync("_LeaveCommentComponentPartial")
+        @* @await Component.InvokeAsync("_LeaveCommentComponentPartial") *@
+        @await Html.PartialAsync("~/Views/Blog/AddComment.cshtml", new { id = ViewBag.blogid })
     </div>
 
 </div>
