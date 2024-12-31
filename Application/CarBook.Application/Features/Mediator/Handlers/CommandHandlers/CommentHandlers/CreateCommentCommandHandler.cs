@@ -17,6 +17,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.CommandHandlers.Comment
             await repository.CreateAsync(new Comment
             {
                 Name = request.Name,
+                EMail = request.EMail,
                 BlogId = request.BlogId,
                 Content = request.Content,
                 CreatedDate = DateTime.Now,

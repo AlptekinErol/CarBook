@@ -20,6 +20,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.QueryHandlers.CommentHa
             return data.Select(x => new GetCommentQueryResult
             {
                 CommentId = x.Id,
+                EMail = x.EMail,
                 BlogId = x.BlogId,
                 Content = x.Content,
                 Name = x.Name,
