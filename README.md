@@ -9,12 +9,17 @@ Bu projenin senaryosu, bir "Araç Kiralama (BookCar)" sistemi üzerine kurulmuş
 🛠️ Kendi Katkılarım (Farklılıklar)
 
 Bu projede standart mimariye ek olarak aşağıdaki geliştirmeleri yaptım:
+
 Repository Pattern Kullanılmadı: CQRS ve MediatR ile doğrudan etkileşim sağlandı.
+
 Unit Test Katmanı: Projede bir Unit Test Katmanı eklenerek farklı senaryolar test edildi.
+
 Özel Exception Sınıfları: Projede Exception Handling için özel exception sınıfları tanımlandı.
+
 Common Katmanı:
 Enums: Proje genelinde kullanılacak sabit enum'lar tanımlandı.
 Constants: Tekrar eden sabit değerler merkezi bir noktada toplandı.
+
 Bootstrapper Katmanı:
 Program.cs dosyasını sade ve okunabilir tutmak için tüm servis yapılandırmaları Bootstrapper katmanında toplandı.
 
