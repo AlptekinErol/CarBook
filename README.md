@@ -5,7 +5,9 @@ Bu projenin senaryosu, bir "Araç Kiralama (BookCar)" sistemi üzerine kurulmuş
 
 ✅ CQRS
 ✅ Mediator
+
 🛠️ Kendi Katkılarım (Farklılıklar)
+
 Bu projede standart mimariye ek olarak aşağıdaki geliştirmeleri yaptım:
 Repository Pattern Kullanılmadı: CQRS ve MediatR ile doğrudan etkileşim sağlandı.
 Unit Test Katmanı: Projede bir Unit Test Katmanı eklenerek farklı senaryolar test edildi.
