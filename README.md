@@ -25,14 +25,23 @@ Program.cs dosyasını sade ve okunabilir tutmak için tüm servis yapılandırm
 
 📊 Proje İçeriği
 Onion Architecture: Katmanlı mimari prensipleri
+
 CQRS: Sorgu ve komut işlemlerinin ayrıştırılması
+
 Mediator: Katmanlar arası iletişim için bağımsız bir aracı
+
 Exception Handling: Merkezi hata yönetimi ve özel exception sınıfları
+
 Unit Test: Katmanların test edilmesi
+
 DTO (Data Transfer Objects): Veri aktarım modelleri
+
 Fluent Validation: Giriş verilerinin doğrulanması
+
 Json Web Token (JWT): Kimlik doğrulama ve yetkilendirme
+
 SignalR: Gerçek zamanlı iletişim (Opsiyonel)
+
 Pivot Table: Gelişmiş veri analizleri (Opsiyonel)
 
 ⚙️ Teknik Detaylar
